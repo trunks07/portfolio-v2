@@ -268,6 +268,7 @@ function Nav({ active }: { active: string }) {
 function Hero() {
   const roles = [
     'Senior Backend Engineer',
+    'Software Development Manager',
     'AI Systems Architect',
     'API Integration Specialist',
     'Cloud-Native Developer',
