@@ -31,43 +31,141 @@ const SKILLS: { category: string; items: string[] }[] = [
   },
 ]
 
-const PROJECTS = [
-  {
-    name: 'Universal Statues',
-    description:
-      'AI-powered e-commerce platform with an embedded chatbot, autonomous marketing agent, and social media agent. Handles product discovery, customer engagement, and cross-channel content publishing.',
-    stack: ['FastAPI', 'ReactJS', 'MongoDB', 'LangChain', 'AWS Lambda', 'EC2', 'OpenAI'],
-    type: 'AI / E-Commerce',
-  },
-  {
-    name: 'Internal RAG Platform',
-    description:
-      'Enterprise knowledge retrieval system built with OpenAI embeddings and MongoDB Vector Search. Enables semantic search across internal documents, enabling faster decision-making across teams.',
-    stack: ['FastAPI', 'Python', 'MongoDB Vector Search', 'OpenAI API', 'AWS'],
-    type: 'Generative AI',
-  },
-  {
-    name: 'Trietrade',
-    description:
-      'Local e-commerce marketplace serving Pampanga businesses. Handles multi-vendor product listings, order management, and buyer-seller communication flows.',
-    stack: ['Laravel', 'MySQL', 'EC2'],
-    type: 'E-Commerce',
-  },
-  {
-    name: 'BMS — Business Monitoring System',
-    description:
-      'Integrated POS, inventory tracking, and cash flow dashboard for retail operations. Real-time reporting and multi-branch support for SME clients.',
-    stack: ['Laravel', 'MySQL', 'JavaScript', 'jQuery', 'EC2'],
-    type: 'Enterprise',
-  },
-  {
-    name: 'MK Themed Attractions',
-    description:
-      'Client-facing product catalog with role-based views, enabling partners and internal staff to browse curated product sets with distinct access controls.',
-    stack: ['Laravel', 'Vue.js', 'MySQL', 'EC2'],
-    type: 'B2B Platform',
-  },
-]
+const PROJECTS: {
+  name: string
+  role: string
+  type: string
+  url?: string
+  description: string
+  responsibilities: string[]
+  stack: string[]
+}[] = [
+    {
+      name: 'AI-Powered E-Commerce Platform',
+      role: 'Software Development Manager / AI Engineer',
+      type: 'AI / E-Commerce',
+      url: 'https://www.universalstatues.com',
+      description:
+        'Designed and developed an AI-powered e-commerce platform for Universal Statues combining customer support, marketing automation, and AI-generated content into a unified cloud-native ecosystem. Multiple serverless AI microservices handle customer interactions, automated marketing campaigns, social media content generation, and knowledge retrieval.',
+      responsibilities: [
+        'Designed the overall cloud-native AI architecture',
+        'Built a context-aware AI chatbot using LangChain and LangGraph',
+        'Implemented RAG pipelines using MongoDB Atlas Vector Search',
+        'Developed FastAPI serverless microservices deployed on AWS Lambda',
+        'Monitored AI workflows using LangSmith',
+        'Integrated OpenAI and Google AI Studio',
+        'Designed reusable AI orchestration workflows',
+      ],
+      stack: ['Python', 'FastAPI', 'AWS Lambda', 'AWS SAM', 'API Gateway', 'LangChain', 'LangGraph', 'LangSmith', 'MongoDB Atlas Vector Search', 'OpenAI API', 'Google AI Studio', 'VoyageAI'],
+    },
+    {
+      name: 'AI Marketing Automation Microservice',
+      role: 'Software Development Manager / AI Engineer',
+      type: 'Agentic AI',
+      description:
+        'Autonomous AI Marketing Agent that automatically creates personalized customer follow-up campaigns and integrates directly with Zoho Campaigns. Operates independently as an AWS Lambda microservice triggered by Amazon EventBridge Scheduler.',
+      responsibilities: [
+        'Built AI workflows for personalized email generation',
+        'Integrated directly with Zoho Campaigns API',
+        'Automated campaign creation and scheduling',
+        'Generated production-ready HTML emails using LLMs',
+        'Designed autonomous serverless microservices',
+        'Implemented scheduled execution using Amazon EventBridge',
+      ],
+      stack: ['FastAPI', 'OpenAI API', 'Zoho Campaign API', 'AWS Lambda', 'Amazon EventBridge', 'LangGraph'],
+    },
+    {
+      name: 'AI Social Media Marketing Agent',
+      role: 'Software Development Manager / AI Engineer',
+      type: 'Agentic AI',
+      description:
+        'AI-powered social media automation platform that generates promotional content and publishes posts automatically. Retrieves product information through RAG pipelines before generating captions, marketing images, and promotional videos using Google Veo 3.',
+      responsibilities: [
+        'Designed AI social media workflows',
+        'Generated marketing captions using LLMs',
+        'Generated AI-assisted marketing images',
+        'Created promotional videos using Google Veo 3',
+        'Built reusable LangGraph orchestration pipelines',
+        'Automated publishing workflows',
+      ],
+      stack: ['Google AI Studio', 'Google Veo 3', 'OpenAI', 'LangGraph', 'FastAPI', 'AWS Lambda', 'MongoDB Atlas Vector Search'],
+    },
+    {
+      name: 'Enterprise AI Chatbot',
+      role: 'Software Development Manager / AI Engineer',
+      type: 'RAG / GenAI',
+      description:
+        'Production AI chatbot for Universal Statues that answers customer inquiries using internal company knowledge instead of generic LLM responses. A RAG architecture retrieves relevant company knowledge before generating responses, significantly improving accuracy while reducing hallucinations.',
+      responsibilities: [
+        'Designed document ingestion pipelines',
+        'Built Retrieval-Augmented Generation (RAG) architecture',
+        'Implemented MongoDB Atlas Vector Search',
+        'Improved prompt engineering for higher response quality',
+        'Reduced hallucinations using internal knowledge retrieval',
+        'Monitored AI traces using LangSmith',
+      ],
+      stack: ['LangChain', 'LangGraph', 'MongoDB Atlas Vector Search', 'VoyageAI', 'OpenAI API', 'LangSmith'],
+    },
+    {
+      name: 'Legacy System Modernization',
+      role: 'Software Development Manager',
+      type: 'Cloud Migration',
+      description:
+        'Led the modernization of an internal factory operations system by migrating a monolithic on-premise application into multiple cloud-native microservices. The original system became unusable during peak production due to hundreds of concurrent users competing for shared resources.',
+      responsibilities: [
+        'Designed microservice architecture for department-specific services (Casting, Detailing, Assembly)',
+        'Migrated monolithic applications into independent services',
+        'Developed REST APIs using FastAPI',
+        'Deployed workloads to AWS Lambda with AWS SAM pipelines',
+        'Migrated database to MongoDB Atlas',
+      ],
+      stack: ['FastAPI', 'AWS Lambda', 'AWS SAM', 'API Gateway', 'Docker', 'MongoDB Atlas'],
+    },
+    {
+      name: 'Marketplace Integration Platform',
+      role: 'Software Development Manager / API Engineer',
+      type: 'API Integration',
+      description:
+        'Cloud-native integration platform that synchronizes inventory and orders between Microsoft Dynamics 365 Business Central and multiple online marketplaces — Shopify, Walmart, and eBay. Eliminates cross-channel sync issues and reduces operational overhead.',
+      responsibilities: [
+        'Integrated Microsoft Dynamics 365 Business Central',
+        'Built Shopify, Walmart Marketplace, and eBay integrations',
+        'Developed automated inventory and pricing synchronization',
+        'Built product management APIs',
+      ],
+      stack: ['Python', 'FastAPI', 'REST APIs', 'OAuth', 'AWS Lambda', 'API Gateway', 'MongoDB', 'MySQL'],
+    },
+    {
+      name: 'AI Email Generation Engine',
+      role: 'AI Engineer',
+      type: 'Generative AI',
+      description:
+        "The company's first AI-powered email generation platform, still in production for automated lead nurturing and account creation follow-ups. A multi-stage workflow plans email structure before generating production-ready HTML using LLMs. Later served as the foundation for the AI Marketing Agent.",
+      responsibilities: [
+        'Designed multi-step LangGraph workflows',
+        'Built AI planning stages for email structure',
+        'Generated production-ready HTML emails using LLMs',
+        'Improved prompts for layout consistency',
+        'Automated customer follow-up campaigns',
+      ],
+      stack: ['LangGraph', 'LangChain', 'OpenAI API', 'FastAPI'],
+    },
+    {
+      name: 'Internal AI RAG Knowledge Platform',
+      role: 'AI Engineer',
+      type: 'RAG / Enterprise',
+      description:
+        "RAG platform integrated into the company's HR Information System (HRIS) to assist HR personnel in interpreting company policies and recommending disciplinary actions. The AI provides recommendations rather than making autonomous decisions, keeping humans in the loop.",
+      responsibilities: [
+        'Built AWS S3 document ingestion pipelines',
+        'Implemented metadata filtering and document chunking strategies',
+        'Generated vector embeddings',
+        'Built similarity search using MongoDB Atlas Vector Search',
+        'Evaluated AI responses using LangSmith',
+      ],
+      stack: ['AWS S3', 'LangChain', 'LangGraph', 'MongoDB Atlas Vector Search', 'VoyageAI', 'OpenAI API', 'LangSmith'],
+    },
+  ]
 
 const EXPERIENCE = [
   {
@@ -173,99 +271,200 @@ function useScrollSpy(ids: string[]) {
   return active
 }
 
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < breakpoint)
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth < breakpoint)
+    window.addEventListener('resize', handler, { passive: true })
+    return () => window.removeEventListener('resize', handler)
+  }, [breakpoint])
+  return isMobile
+}
+
 // ─── Components ──────────────────────────────────────────────────────────────
 
 function Nav({ active }: { active: string }) {
+  const isMobile = useIsMobile()
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  const closeMenu = () => setMenuOpen(false)
+
   return (
-    <header
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 50,
-        borderBottom: '1px solid var(--border)',
-        backgroundColor: 'rgba(7,11,16,0.88)',
-        backdropFilter: 'blur(12px)',
-      }}
-    >
-      <div
+    <>
+      <header
         style={{
-          maxWidth: 1100,
-          margin: '0 auto',
-          padding: '0 24px',
-          height: 56,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 50,
+          borderBottom: '1px solid var(--border)',
+          backgroundColor: 'rgba(7,11,16,0.92)',
+          backdropFilter: 'blur(12px)',
         }}
       >
-        <a
-          href="#"
-          className="mono"
+        <div
           style={{
-            color: 'var(--primary)',
-            textDecoration: 'none',
-            fontSize: 14,
-            fontWeight: 500,
-            letterSpacing: '0.04em',
+            maxWidth: 1100,
+            margin: '0 auto',
+            padding: '0 24px',
+            height: 56,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
           }}
         >
-          carlo.guevarra
-        </a>
+          <a
+            href="#"
+            className="mono"
+            style={{ color: 'var(--primary)', textDecoration: 'none', fontSize: 14, fontWeight: 500, letterSpacing: '0.04em' }}
+          >
+            carlo.guevarra
+          </a>
 
-        {/* Desktop nav */}
-        <nav style={{ display: 'flex', gap: 32 }}>
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
-              className="mono"
+          {isMobile ? (
+            /* Hamburger button */
+            <button
+              onClick={() => setMenuOpen((o) => !o)}
               style={{
-                color: active === link ? 'var(--primary)' : 'var(--secondary-foreground)',
+                background: 'none',
+                border: '1px solid var(--border)',
+                borderRadius: 4,
+                padding: '6px 10px',
+                cursor: 'pointer',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 4,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? (
+                /* X icon */
+                <span className="mono" style={{ color: 'var(--primary)', fontSize: 16, lineHeight: 1, display: 'block', width: 18, textAlign: 'center' }}>✕</span>
+              ) : (
+                /* Hamburger lines */
+                [0, 1, 2].map((i) => (
+                  <span key={i} style={{ display: 'block', width: 18, height: 2, backgroundColor: 'var(--foreground)', borderRadius: 1 }} />
+                ))
+              )}
+            </button>
+          ) : (
+            <>
+              {/* Desktop nav links */}
+              <nav style={{ display: 'flex', gap: 32 }}>
+                {NAV_LINKS.map((link) => (
+                  <a
+                    key={link}
+                    href={`#${link.toLowerCase()}`}
+                    className="mono"
+                    style={{
+                      color: active === link ? 'var(--primary)' : 'var(--secondary-foreground)',
+                      textDecoration: 'none',
+                      fontSize: 12,
+                      fontWeight: 500,
+                      letterSpacing: '0.06em',
+                      transition: 'color 0.2s',
+                    }}
+                    onMouseEnter={(e) => { if (active !== link) (e.target as HTMLElement).style.color = 'var(--foreground)' }}
+                    onMouseLeave={(e) => { if (active !== link) (e.target as HTMLElement).style.color = 'var(--secondary-foreground)' }}
+                  >
+                    {link.toUpperCase()}
+                  </a>
+                ))}
+              </nav>
+
+              <a
+                href="mailto:carloguevarra454@gmail.com"
+                style={{
+                  backgroundColor: 'var(--primary)',
+                  color: 'var(--primary-foreground)',
+                  padding: '6px 16px',
+                  borderRadius: 'var(--radius)',
+                  fontSize: 12,
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  fontFamily: "'JetBrains Mono', monospace",
+                  letterSpacing: '0.04em',
+                  transition: 'opacity 0.2s',
+                }}
+                onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = '0.85')}
+                onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = '1')}
+              >
+                Hire Me
+              </a>
+            </>
+          )}
+        </div>
+      </header>
+
+      {/* Mobile drawer */}
+      {isMobile && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 56,
+            left: 0,
+            right: 0,
+            zIndex: 49,
+            backgroundColor: 'rgba(7,11,16,0.98)',
+            backdropFilter: 'blur(12px)',
+            borderBottom: '1px solid var(--border)',
+            maxHeight: menuOpen ? 480 : 0,
+            overflow: 'hidden',
+            transition: 'max-height 0.3s ease',
+          }}
+        >
+          <nav style={{ display: 'flex', flexDirection: 'column', padding: '8px 24px 24px' }}>
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link}
+                href={`#${link.toLowerCase()}`}
+                onClick={closeMenu}
+                className="mono"
+                style={{
+                  color: active === link ? 'var(--primary)' : 'var(--foreground)',
+                  textDecoration: 'none',
+                  fontSize: 14,
+                  fontWeight: 500,
+                  letterSpacing: '0.08em',
+                  padding: '14px 0',
+                  borderBottom: '1px solid var(--border)',
+                  transition: 'color 0.2s',
+                }}
+              >
+                {link.toUpperCase()}
+              </a>
+            ))}
+            <a
+              href="mailto:carloguevarra454@gmail.com"
+              onClick={closeMenu}
+              style={{
+                display: 'inline-block',
+                marginTop: 20,
+                backgroundColor: 'var(--primary)',
+                color: 'var(--primary-foreground)',
+                padding: '12px 24px',
+                borderRadius: 'var(--radius)',
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 13,
+                fontWeight: 600,
                 textDecoration: 'none',
-                fontSize: 12,
-                fontWeight: 500,
-                letterSpacing: '0.06em',
-                transition: 'color 0.2s',
-              }}
-              onMouseEnter={(e) => {
-                if (active !== link) (e.target as HTMLElement).style.color = 'var(--foreground)'
-              }}
-              onMouseLeave={(e) => {
-                if (active !== link) (e.target as HTMLElement).style.color = 'var(--secondary-foreground)'
+                textAlign: 'center',
               }}
             >
-              {link.toUpperCase()}
+              Hire Me
             </a>
-          ))}
-        </nav>
-
-        <a
-          href="mailto:carloguevarra454@gmail.com"
-          style={{
-            backgroundColor: 'var(--primary)',
-            color: 'var(--primary-foreground)',
-            padding: '6px 16px',
-            borderRadius: 'var(--radius)',
-            fontSize: 12,
-            fontWeight: 600,
-            textDecoration: 'none',
-            fontFamily: "'JetBrains Mono', monospace",
-            letterSpacing: '0.04em',
-            transition: 'opacity 0.2s',
-          }}
-          onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = '0.85')}
-          onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = '1')}
-        >
-          Hire Me
-        </a>
-      </div>
-    </header>
+          </nav>
+        </div>
+      )}
+    </>
   )
 }
 
 function Hero() {
+  const isMobile = useIsMobile()
   const roles = [
     'Senior Backend Engineer',
     'Software Development Manager',
@@ -301,7 +500,7 @@ function Hero() {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        padding: '120px 24px 80px',
+        padding: isMobile ? '96px 20px 64px' : '120px 24px 80px',
         maxWidth: 1100,
         margin: '0 auto',
         position: 'relative',
@@ -520,21 +719,22 @@ function SectionLabel({ children }: { children: string }) {
 }
 
 function About() {
+  const isMobile = useIsMobile()
   return (
     <section
       id="about"
       style={{
         maxWidth: 1100,
         margin: '0 auto',
-        padding: '100px 24px',
+        padding: isMobile ? '72px 20px' : '100px 24px',
       }}
     >
       <SectionLabel>About</SectionLabel>
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'minmax(0,1fr) minmax(0,1fr)',
-          gap: 64,
+          gridTemplateColumns: isMobile ? '1fr' : 'minmax(0,1fr) minmax(0,1fr)',
+          gap: isMobile ? 32 : 64,
           alignItems: 'start',
         }}
       >
@@ -622,13 +822,14 @@ function About() {
 }
 
 function Skills() {
+  const isMobile = useIsMobile()
   return (
     <section
       id="skills"
       style={{
         maxWidth: 1100,
         margin: '0 auto',
-        padding: '100px 24px',
+        padding: isMobile ? '72px 20px' : '100px 24px',
         borderTop: '1px solid var(--border)',
       }}
     >
@@ -636,8 +837,8 @@ function Skills() {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-          gap: 24,
+          gridTemplateColumns: isMobile ? 'repeat(auto-fill, minmax(140px, 1fr))' : 'repeat(auto-fill, minmax(200px, 1fr))',
+          gap: isMobile ? 16 : 24,
         }}
       >
         {SKILLS.map((group) => (
@@ -691,14 +892,154 @@ function Skills() {
   )
 }
 
+function ProjectCard({ project }: { project: typeof PROJECTS[number] }) {
+  const [expanded, setExpanded] = useState(false)
+
+  return (
+    <div
+      style={{
+        backgroundColor: 'var(--card)',
+        border: '1px solid var(--border)',
+        borderRadius: 6,
+        borderLeft: '3px solid var(--primary)',
+        overflow: 'hidden',
+        transition: 'box-shadow 0.2s',
+      }}
+      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(61,255,160,0.06)' }}
+      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'none' }}
+    >
+      <div style={{ padding: '24px 24px 20px' }}>
+        {/* Header row */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12, marginBottom: 8 }}>
+          <h3 style={{ fontSize: 16, fontWeight: 600, color: 'var(--foreground)', margin: 0, lineHeight: 1.3 }}>
+            {project.name}
+          </h3>
+          <span
+            className="mono"
+            style={{
+              fontSize: 10,
+              letterSpacing: '0.08em',
+              color: 'var(--primary)',
+              backgroundColor: 'rgba(61,255,160,0.08)',
+              padding: '3px 8px',
+              borderRadius: 3,
+              whiteSpace: 'nowrap',
+              flexShrink: 0,
+            }}
+          >
+            {project.type}
+          </span>
+        </div>
+
+        {/* Role + URL */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+          <span className="mono" style={{ fontSize: 11, color: 'var(--muted-foreground)' }}>
+            {project.role}
+          </span>
+          {project.url && (
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noreferrer"
+              className="mono"
+              style={{ fontSize: 11, color: 'var(--primary)', textDecoration: 'none', opacity: 0.8, transition: 'opacity 0.2s' }}
+              onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = '1')}
+              onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = '0.8')}
+            >
+              ↗ visit
+            </a>
+          )}
+        </div>
+
+        <p style={{ fontSize: 13, lineHeight: 1.7, color: 'var(--secondary-foreground)', margin: '0 0 16px' }}>
+          {project.description}
+        </p>
+
+        {/* Stack tags */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginBottom: 16 }}>
+          {project.stack.map((tech) => (
+            <span
+              key={tech}
+              className="mono"
+              style={{
+                fontSize: 10,
+                color: 'var(--muted-foreground)',
+                backgroundColor: 'var(--muted)',
+                border: '1px solid var(--border)',
+                padding: '2px 7px',
+                borderRadius: 3,
+              }}
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        {/* Expand toggle */}
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="mono"
+          style={{
+            background: 'none',
+            border: 'none',
+            padding: 0,
+            cursor: 'pointer',
+            fontSize: 11,
+            color: 'var(--muted-foreground)',
+            letterSpacing: '0.06em',
+            transition: 'color 0.2s',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 6,
+          }}
+          onMouseEnter={(e) => ((e.target as HTMLElement).style.color = 'var(--primary)')}
+          onMouseLeave={(e) => ((e.target as HTMLElement).style.color = 'var(--muted-foreground)')}
+        >
+          <span style={{ display: 'inline-block', transform: expanded ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }}>▶</span>
+          {expanded ? 'hide responsibilities' : 'view responsibilities'}
+        </button>
+      </div>
+
+      {/* Expandable responsibilities */}
+      <div
+        style={{
+          maxHeight: expanded ? 600 : 0,
+          overflow: 'hidden',
+          transition: 'max-height 0.35s ease',
+        }}
+      >
+        <div
+          style={{
+            padding: '0 24px 24px',
+            borderTop: '1px solid var(--border)',
+            paddingTop: 16,
+          }}
+        >
+          <p className="mono" style={{ fontSize: 10, color: 'var(--primary)', letterSpacing: '0.1em', margin: '0 0 10px', textTransform: 'uppercase' }}>
+            Responsibilities
+          </p>
+          <ul style={{ margin: 0, paddingLeft: 16, display: 'flex', flexDirection: 'column', gap: 6 }}>
+            {project.responsibilities.map((r, i) => (
+              <li key={i} style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--secondary-foreground)' }}>
+                {r}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function Projects() {
+  const isMobile = useIsMobile()
   return (
     <section
       id="projects"
       style={{
         maxWidth: 1100,
         margin: '0 auto',
-        padding: '100px 24px',
+        padding: isMobile ? '72px 20px' : '100px 24px',
         borderTop: '1px solid var(--border)',
       }}
     >
@@ -706,75 +1047,12 @@ function Projects() {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(320px, 1fr))',
           gap: 20,
         }}
       >
         {PROJECTS.map((project) => (
-          <div
-            key={project.name}
-            style={{
-              backgroundColor: 'var(--card)',
-              border: '1px solid var(--border)',
-              borderRadius: 6,
-              padding: '28px',
-              borderLeft: '3px solid var(--primary)',
-              transition: 'transform 0.2s, box-shadow 0.2s',
-              cursor: 'default',
-            }}
-            onMouseEnter={(e) => {
-              const el = e.currentTarget
-              el.style.transform = 'translateY(-2px)'
-              el.style.boxShadow = '0 8px 32px rgba(61,255,160,0.06)'
-            }}
-            onMouseLeave={(e) => {
-              const el = e.currentTarget
-              el.style.transform = 'translateY(0)'
-              el.style.boxShadow = 'none'
-            }}
-          >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 }}>
-              <h3 style={{ fontSize: 17, fontWeight: 600, color: 'var(--foreground)', margin: 0 }}>
-                {project.name}
-              </h3>
-              <span
-                className="mono"
-                style={{
-                  fontSize: 10,
-                  letterSpacing: '0.08em',
-                  color: 'var(--primary)',
-                  backgroundColor: 'rgba(61,255,160,0.08)',
-                  padding: '3px 8px',
-                  borderRadius: 3,
-                  whiteSpace: 'nowrap',
-                  marginLeft: 12,
-                }}
-              >
-                {project.type}
-              </span>
-            </div>
-            <p style={{ fontSize: 14, lineHeight: 1.7, color: 'var(--secondary-foreground)', margin: '0 0 20px' }}>
-              {project.description}
-            </p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-              {project.stack.map((tech) => (
-                <span
-                  key={tech}
-                  className="mono"
-                  style={{
-                    fontSize: 11,
-                    color: 'var(--muted-foreground)',
-                    backgroundColor: 'var(--muted)',
-                    border: '1px solid var(--border)',
-                    padding: '2px 8px',
-                    borderRadius: 3,
-                  }}
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
+          <ProjectCard key={project.name} project={project} />
         ))}
       </div>
     </section>
@@ -783,6 +1061,7 @@ function Projects() {
 
 function Experience() {
   const [expanded, setExpanded] = useState<number | null>(null)
+  const isMobile = useIsMobile()
 
   return (
     <section
@@ -790,7 +1069,7 @@ function Experience() {
       style={{
         maxWidth: 1100,
         margin: '0 auto',
-        padding: '100px 24px',
+        padding: isMobile ? '72px 20px' : '100px 24px',
         borderTop: '1px solid var(--border)',
       }}
     >
@@ -831,8 +1110,8 @@ function Experience() {
               }}
               onClick={() => setExpanded(expanded === i ? null : i)}
             >
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}>
-                <h3 style={{ fontSize: 18, fontWeight: 600, color: 'var(--foreground)', margin: 0 }}>
+              <div style={{ display: 'flex', alignItems: isMobile ? 'flex-start' : 'center', flexDirection: isMobile ? 'column' : 'row', justifyContent: 'space-between', gap: isMobile ? 4 : 8 }}>
+                <h3 style={{ fontSize: isMobile ? 16 : 18, fontWeight: 600, color: 'var(--foreground)', margin: 0 }}>
                   {job.title}
                 </h3>
                 <span
@@ -842,7 +1121,7 @@ function Experience() {
                   {job.period}
                 </span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}>
                 <p className="mono" style={{ fontSize: 13, color: 'var(--primary)', margin: 0 }}>
                   {job.company} <span style={{ color: 'var(--muted-foreground)', fontWeight: 400 }}>· {job.location}</span>
                 </p>
@@ -878,18 +1157,19 @@ function Experience() {
 }
 
 function Education() {
+  const isMobile = useIsMobile()
   return (
     <section
       id="education"
       style={{
         maxWidth: 1100,
         margin: '0 auto',
-        padding: '100px 24px',
+        padding: isMobile ? '72px 20px' : '100px 24px',
         borderTop: '1px solid var(--border)',
       }}
     >
       <SectionLabel>Education & Certifications</SectionLabel>
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,2fr)', gap: 64, alignItems: 'start' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'minmax(0,1fr) minmax(0,2fr)', gap: isMobile ? 32 : 64, alignItems: 'start' }}>
 
         {/* Education */}
         <div
@@ -954,13 +1234,14 @@ function Education() {
 }
 
 function Contact() {
+  const isMobile = useIsMobile()
   return (
     <section
       id="contact"
       style={{
         maxWidth: 1100,
         margin: '0 auto',
-        padding: '100px 24px 120px',
+        padding: isMobile ? '72px 20px 80px' : '100px 24px 120px',
         borderTop: '1px solid var(--border)',
       }}
     >
@@ -968,8 +1249,8 @@ function Contact() {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: 64,
+          gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+          gap: isMobile ? 32 : 64,
           alignItems: 'start',
         }}
       >
@@ -1006,7 +1287,7 @@ function Contact() {
           {[
             { label: 'Email', value: 'carloguevarra454@gmail.com', href: 'mailto:carloguevarra454@gmail.com' },
             { label: 'Phone', value: '09427346600', href: 'tel:+639427346600' },
-            { label: 'Location', value: '32 Sitio Centro 2, Apalit, Pampanga', href: undefined },
+            { label: 'Location', value: 'Sitio Centro 2, Colgante, Apalit, Pampanga 2016', href: undefined },
             { label: 'GitHub', value: 'github.com/trunks07', href: 'https://github.com/trunks07' },
             { label: 'LinkedIn', value: 'linkedin.com/in/carloguevarra-58b694183', href: 'https://linkedin.com/in/carloguevarra-58b694183' },
           ].map(({ label, value, href }) => (
