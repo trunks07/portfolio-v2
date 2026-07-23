@@ -11,7 +11,7 @@ const SKILLS: { category: string; items: string[] }[] = [
   },
   {
     category: 'Backend Development',
-    items: ['Python', 'FastAPI', 'PHP', 'Laravel', 'JavaScript', 'Django', 'REST APIs'],
+    items: ['Python', 'FastAPI', 'PHP', 'Laravel', 'Django', 'REST APIs'],
   },
   {
     category: 'Cloud & DevOps',
@@ -27,7 +27,7 @@ const SKILLS: { category: string; items: string[] }[] = [
   },
   {
     category: 'Frontend',
-    items: ['ReactJS', 'Vue.js', 'Angular', 'jQuery'],
+    items: ['ReactJS', 'Vue.js', 'Angular', 'jQuery', 'JavaScript'],
   },
 ]
 
